@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>QR Code Generator</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <section class="scene">
+            <div class="sun"></div>
+            <div class="bg"></div>
+            <img src="police_car.gif" class="car1">
+            <img src="police_car.gif" class="car2">
+        </section>
+        <div class="container">
+            <p>Enter your text or URL</p>
+            <input type="text" placeholders="Text or URL" id="qrText">
+
+            <div id="imgBox">
+                <img src="" id="qrImage">
+            </div>  
+
+            <button onclick="generateQR()">Generate QR Code</button>
+        </div>
+
+        <script>
+
+            const sun = document.querySelector('.sun');
+            const body = document.querySelector('body');
+            sun.onclick = function(){
+                body.classList.toggle('dark')
+            }
+            let imgBox = document.getElementById("imgBox");
+            let qrImage = document.getElementById("qrImage");
+            let qrText = document.getElementById("qrText");
+
+
+
+
+
+            function generateQR(){
+                if(qrText.value.length > 0){
+                    qrImage.src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=" + qrText.value;
+                    imgBox.classList.add("show-img");
+
+                }
+                else{
+
+                    qrText.classList.add('error');
+                    setTimeout(()=>{
+                        qrText.classList.remove('error');
+
+                    },1000);
+                }
+            }
+        </script>
+    </body>
+</html>

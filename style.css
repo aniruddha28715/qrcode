@@ -1,0 +1,210 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+    box-sizing: border-box;
+}
+
+.scene{
+    position: relative;
+    height: 100vh;
+    overflow-x: hidden;
+    background: linear-gradient(#a6d8ff, #fff, #fff);
+
+}
+
+.dark .scene{
+    background: #222833;
+}
+.sun{
+    position: absolute;
+    top: 100px;
+    left: 55%;
+    transform: transform(-50%);
+    width: 100px;
+    height: 100px;
+    background: #fff;
+    border-radius: 50%;
+    box-shadow: 0 0 50px #fff;
+    cursor: pointer;
+    transition: 0.2s;
+
+}
+
+.dark .sun{
+    left: 45%;
+    box-shadow: 0 0 0 #fff;
+
+
+
+}
+
+.dark .sun::before{
+    content: '';
+    position: absolute;
+    top: -20px;
+    Left: -20px;
+    width: 100%;
+    height: 100%;
+    background: #222833;
+    border-radius: 50%;
+
+}
+
+.bg{
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 280px;
+    background: url(bg.png);
+    animation: animateBg 25s linear infinite;
+    background-size: 1500px;
+    background-repeat: repeat-x ;
+}
+
+@keyframes animateBg {
+    0%
+    {
+        background-position-x: 0px;
+    }
+    100%
+    {
+        background-position-x: -1500px;
+    }
+    
+}
+
+.car1{
+    position: absolute;
+    left: -200px;
+    bottom: 20px;
+    max-width: 200px;
+    z-index: 10;
+    animation: car1 18s linear infinite;
+}
+
+@keyframes car1
+{
+    0%
+    {
+        transform: translateX(0px);
+    }
+    90%, 100%
+    {
+        transform: translateX(calc(100vw + 200px));
+    }
+}
+
+
+.car2{
+    position: absolute;
+    right: -200px;
+    bottom: 50px;
+    max-width: 200px;
+    z-index: 9;
+    animation: car2  12s linear infinite;
+}
+
+@keyframes car2
+{
+    0%
+    {
+        transform: translateX(0px) rotateY(180deg) ;
+    }
+    90%, 100%
+    {
+        transform: translateX(calc(-100vw - 200px)) rotateY(180deg);
+    }
+}
+
+.container{
+    width: 400px;
+    padding: 25px 35px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: #fff;
+    border-radius: 10px;
+
+}
+
+.container p{
+    font-weight: 600;
+    font-size: 15px;
+    margin-bottom: 8px;
+}
+
+
+.container input{
+    width: 100%;
+    height: 50px;
+    border: 1px solid #494eea;
+    outline: 10px;
+    padding: 10px;
+    margin: 10px 0 20px;
+    border-radius: 5px;
+    
+}
+
+.container button{
+    width: 100%;
+    height: 50px;
+    background: #494eea;
+    color: #fff;
+    border: 0;
+    outline: 0;
+    border-radius: 5px;
+    box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
+    cursor: pointer;   
+    margin: 20px 0;
+    font-weight: 500;
+}
+
+#imgBox{
+    width: 150px;
+    height: 150px;
+    border-radius: 5px;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 1s;
+
+}
+
+#imgBox img{
+    width: 150px;
+    padding: 10px;
+
+}
+
+#imgBox.show-img{
+    max-height: 300px;
+    margin: 10px auto;
+    border: 1px solid #d1d1d1;
+
+
+}
+
+.error{
+    animation: shake 0.1s linear 10;
+
+}
+
+@keyframes shake {
+    0%{
+        transform: translateX(0);
+    }
+    25%{
+        transform: translateX(-2px);
+    }
+    50%{
+        transform: translateX(0);
+    }
+    75%{
+        transform: translateX(2px);
+    }
+    100%{
+        transform: translateX(0);
+    }
+    
+}
